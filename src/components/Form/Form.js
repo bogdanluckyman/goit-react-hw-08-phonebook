@@ -1,8 +1,8 @@
 import { Formik } from 'formik';
 import { Form, Field, FormGroup } from './Form.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from '../../redux/selectors';
-import { addContact } from 'api';
+import { selectContacts } from '../../redux/contacts/selectors';
+import { addContact } from '../../redux/contacts/api';
 
 export const ContactForm = () => {
   const contacts = useSelector(selectContacts);

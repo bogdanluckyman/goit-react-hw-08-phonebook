@@ -3,9 +3,9 @@ import { ContactForm } from './Form/Form';
 import { ContactList } from './ContactList';
 import { SearchBar } from './SearchBar';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from '../redux/selectors';
+import { selectContacts } from '../redux/contacts/selectors';
 import { useEffect } from 'react';
-import { fetchContacts } from 'api';
+import { fetchContacts } from '../redux/contacts/api';
 
 export const App = () => {
   const contacts = useSelector(selectContacts);
@@ -14,6 +14,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
+
   return (
     <div>
       <h1>Phonebook</h1>
