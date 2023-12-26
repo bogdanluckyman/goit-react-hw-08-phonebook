@@ -1,28 +1,18 @@
-import { GlobalStyle } from './GlobalStyled';
-import { ContactForm } from './Form/Form';
-import { ContactList } from './ContactList';
-import { SearchBar } from './SearchBar';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectContacts } from '../redux/contacts/selectors';
-import { useEffect } from 'react';
-import { fetchContacts } from '../redux/contacts/api';
+import ContactsPage from 'pages/Contacts';
+import { Route, Routes } from 'react-router-dom';
+import { AppLayout } from './AppLayout';
+import Register from 'pages/Register';
+import LoginPage from 'pages/Login';
 
 export const App = () => {
-  const contacts = useSelector(selectContacts);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
-    <div>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <SearchBar />
-      {contacts.length > 0 && <ContactList />}
-      <GlobalStyle />
-    </div>
+    <Routes>
+      <Route path="/" element={<AppLayout />}>
+        <Route index element />
+        <Route path="register" element={<Register />} />
+        <Route path="login" element={<LoginPage />} />
+        <Route path="contacts" element={<ContactsPage />} />
+      </Route>
+    </Routes>
   );
 };
