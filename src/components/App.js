@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { refresh } from '../redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
 import { RestrictedRoute } from './RestrictedRoute';
+import { PrivateRoute } from './PrivateRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,10 @@ export const App = () => {
           <Route
             path="register"
             element={
-              <RestrictedRoute component={<Register />} redirectTo="contacts" />
+              <RestrictedRoute
+                component={<Register />}
+                redirectTo="/contacts"
+              />
             }
           />
           <Route
@@ -31,11 +35,16 @@ export const App = () => {
             element={
               <RestrictedRoute
                 component={<LoginPage />}
-                redirectTo="contacts"
+                redirectTo="/contacts"
               />
             }
           />
-          <Route path="contacts" element={<ContactsPage />} />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
+            }
+          />
         </Route>
       </Routes>
     )

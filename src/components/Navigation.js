@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { AuthNav } from './AuthNav';
+import { AuthNav } from './AuthNav/AuthNav';
 import { useAuth } from 'hooks/useAuth';
 import { UserMenu } from './UserMenu';
 
