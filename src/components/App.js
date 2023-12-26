@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refresh } from '../redux/auth/operations';
 import { useAuth } from 'hooks/useAuth';
+import { RestrictedRoute } from './RestrictedRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -19,9 +20,21 @@ export const App = () => {
     !isRefreshing && (
       <Routes>
         <Route path="/" element={<AppLayout />}>
-          <Route index element />
-          <Route path="register" element={<Register />} />
-          <Route path="login" element={<LoginPage />} />
+          <Route
+            path="register"
+            element={
+              <RestrictedRoute component={<Register />} redirectTo="contacts" />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <RestrictedRoute
+                component={<LoginPage />}
+                redirectTo="contacts"
+              />
+            }
+          />
           <Route path="contacts" element={<ContactsPage />} />
         </Route>
       </Routes>
