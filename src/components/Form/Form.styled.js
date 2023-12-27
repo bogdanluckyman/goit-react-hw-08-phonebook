@@ -18,3 +18,23 @@ export const FormGroup = styled.label`
   flex-direction: column;
   gap: 4px;
 `;
+
+export const FormContainer = styled.div`
+  width: 300px;
+  border: 2px solid #615049;
+  margin-top: 15px;
+  background-color: #f1d3bc;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+`;
+
+export const StyledText = styled.p`
+  color: #262f34;
+  margin: 0;
+`;
+
+export const StyledTitle = styled.h2`
+  color: #262f34;
+  margin: 5;
+`;

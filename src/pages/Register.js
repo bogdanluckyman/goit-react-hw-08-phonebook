@@ -1,4 +1,10 @@
-import { FormGroup, Form } from 'components/Form/Form.styled';
+import {
+  FormGroup,
+  Form,
+  FormContainer,
+  StyledText,
+  StyledTitle,
+} from 'components/Form/Form.styled';
 import { Field, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { register } from '../redux/auth/operations';
@@ -19,8 +25,8 @@ export default function Register() {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
+    <FormContainer>
+      <StyledTitle>Register</StyledTitle>
       <Formik
         initialValues={{
           username: '',
@@ -31,20 +37,20 @@ export default function Register() {
       >
         <Form>
           <FormGroup>
-            Username
+            <StyledText>Username</StyledText>
             <Field name="username" />
           </FormGroup>
           <FormGroup>
-            Email
+            <StyledText>Email</StyledText>
             <Field name="email" type="text" />
           </FormGroup>
           <FormGroup>
-            Password
+            <StyledText>Password</StyledText>
             <Field name="password" type="password" />
           </FormGroup>
           <button type="submit">Register</button>
         </Form>
       </Formik>
-    </div>
+    </FormContainer>
   );
 }

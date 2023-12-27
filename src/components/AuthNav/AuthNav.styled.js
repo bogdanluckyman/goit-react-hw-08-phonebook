@@ -4,12 +4,12 @@ import { NavLink } from 'react-router-dom';
 export const CenteredContainer = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 100vh;
+  align-items: flex-start;
 `;
 
 export const Navigations = styled.nav`
   display: flex;
+  align-items: center;
   gap: 20px;
 `;
 
@@ -17,7 +17,7 @@ export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   padding: 12px 20px;
   font-size: 18px;
-  color: #615049;
+  color: #262f34;
   background-color: #f1d3bc;
   border: 2px solid #f34a4a;
   border-radius: 8px;

@@ -3,6 +3,9 @@ import 'modern-normalize';
 
 export const GlobalStyle = createGlobalStyle`
 body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #f1d3bc;
   padding: 20px;
   margin: 0;
@@ -23,22 +26,24 @@ margin-right: 10px;
 }
 
 button {
-  display: inline-block;
-  padding: 10px 20px;
-  margin-bottom: 5px;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
   cursor: pointer;
-  border: 2px solid #3498db; 
-  border-radius: 5px; 
-  background-color: #3498db; 
-  color: #fff; 
-  transition: background-color 0.3s, color 0.3s;}
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 18px;
+  color: #262f34;
+  background-color: #f1d3bc;
+  border: 2px solid #f34a4a;
+  border-radius: 8px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 
-button:hover {
-  background-color: #2980b9; 
-  border-color: #2980b9; 
-  color: #fff; 
+  &:hover {
+    background-color: #f34a4a;
+    border-color: #262f34;
+    color: #f1d3bc;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(38, 47, 52, 0.7);
+  }
 }`;
