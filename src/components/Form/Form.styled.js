@@ -38,3 +38,27 @@ export const StyledTitle = styled.h2`
   color: #262f34;
   margin: 5;
 `;
+
+export const StyledBigTitle = styled.h1`
+  color: #262f34;
+  margin: 5;
+`;
+
+export const StyledMiniTitle = styled.h3`
+  color: #262f34;
+  margin: 5;
+`;
+
+export const ContactsContainer = styled.div`
+  /* width: 500px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #615049;
+  margin-top: 15px;
+  background-color: #f1d3bc;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+`;

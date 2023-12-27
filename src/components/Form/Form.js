@@ -47,11 +47,11 @@ export const ContactForm = () => {
         <Form>
           <FormGroup>
             Name
-            <Field name="name" />
+            <Field name="name" maxlength="20" />
           </FormGroup>
           <FormGroup>
             Number
-            <Field name="number" type="text" />
+            <Field name="number" type="text" maxlength="20" />
           </FormGroup>
 
           <button type="submit">Add contact</button>

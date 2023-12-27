@@ -1,4 +1,4 @@
-import { ContactList } from 'components/ContactList';
+import { ContactList } from 'components/ContactList/ContactList';
 import { ContactForm } from 'components/Form/Form';
 import { GlobalStyle } from 'components/GlobalStyled';
 import { SearchBar } from 'components/SearchBar';
@@ -6,6 +6,11 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from '../redux/contacts/api';
 import { selectContacts } from '../redux/contacts/selectors';
+import {
+  ContactsContainer,
+  StyledBigTitle,
+  StyledTitle,
+} from 'components/Form/Form.styled';
 
 export default function ContactsPage() {
   const contacts = useSelector(selectContacts);
@@ -15,13 +20,13 @@ export default function ContactsPage() {
     dispatch(fetchContacts());
   }, [dispatch]);
   return (
-    <div>
-      <h1>Phonebook</h1>
+    <ContactsContainer>
+      <StyledBigTitle>Phonebook</StyledBigTitle>
       <ContactForm />
-      <h2>Contacts</h2>
+      <StyledTitle>Contacts</StyledTitle>
       <SearchBar />
       {contacts.length > 0 && <ContactList />}
       <GlobalStyle />
-    </div>
+    </ContactsContainer>
   );
 }

@@ -2,8 +2,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   selectContacts,
   selectVisibleContacts,
-} from '../redux/contacts/selectors';
-import { deleteContact } from '../redux/contacts/api';
+} from '../../redux/contacts/selectors';
+import { deleteContact } from '../../redux/contacts/api';
+import {
+  List,
+  ListItem,
+  ListItemBtn,
+  ListItemText,
+} from './ContactList.styled';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
@@ -12,22 +18,25 @@ export const ContactList = () => {
 
   return (
     <div>
-      <ul>
+      <List>
         {isLoading && <b>Loading tasks...</b>}
         {error && <b>{error}</b>}
         {trueContact.map(({ id, name, number }) => {
           return (
-            <li key={id}>
-              <b>
+            <ListItem key={id}>
+              <ListItemText>
                 {name}: {number}
-              </b>
-              <button type="button" onClick={() => dispatch(deleteContact(id))}>
+              </ListItemText>
+              <ListItemBtn
+                type="button"
+                onClick={() => dispatch(deleteContact(id))}
+              >
                 Delete
-              </button>
-            </li>
+              </ListItemBtn>
+            </ListItem>
           );
         })}
-      </ul>
+      </List>
     </div>
   );
 };
